@@ -1,11 +1,12 @@
+const env=require("dotenv");
+env.config();
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 const mongodb = require("./db");
 const CreateUser = require("./Routes/CreateUser");
 const DisplayData=require("./Routes/DisplayData")
 const OrderData=require("./Routes/OrderData")
-// mongodb();
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
