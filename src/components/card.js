@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useDispatchCart,useCart } from "./Contextreducer";
+import { useDispatchCart,useCart } from "./ContextReducer";
 function Card(props) {
   let foodItem=props.foodItem;
   let option=props.options;

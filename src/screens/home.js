@@ -3,7 +3,7 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import Card from "../components/card";
 function Home() {
-  const [Search, setSearch]=useState('');
+  const [Search, setSearch] = useState("");
   const [foodCat, setFoodCat] = useState([]);
   const [foodItem, setFoodItem] = useState([]);
 
@@ -45,31 +45,45 @@ function Home() {
                   placeholder="Search"
                   aria-label="Search"
                   value={Search}
-                  onChange={(e)=>{setSearch(e.target.value)}}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                  }}
                 />
               </div>
             </div>
             <div className="carousel-item active">
               <img
-                src="https://source.unsplash.com/random/900×700/?burger"
-                className="d-block w-100"
-                style={{ Filter: "brightness(30%)", height:"700px",objectFit:"fill"}}
+                src="http://farm5.static.flickr.com/4053/4448297408_372e9eaa63.jpg"
+                className="d-block w-100 d-flex align-items-center"
+                style={{
+                  Filter: "brightness(30%)",
+                  height: "700px",
+                  objectFit: "fill",
+                }}
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                src="https://source.unsplash.com/random/900×700/?roti"
-                className="d-block w-100"
-                style={{ Filter: "brightness(30%)" , height:"700px",objectFit:"fill"}}
+                src="https://paattiskitchen.com/wp-content/uploads/2022/12/kmc_20221222_183111-1024x576.jpg"
+                className="d-block w-100 img-fluid"
+                style={{
+                  Filter: "brightness(30%)",
+                  height: "auto",
+                  objectFit: "fill",
+                }}
                 alt="..."
               />
             </div>
             <div className="carousel-item">
               <img
-                src="https://source.unsplash.com/random/900×700/?paneer"
+                src="https://t4.ftcdn.net/jpg/05/82/28/65/360_F_582286506_Kji3X5NrZBHMTFSqwG9gADXWMsjrtEjL.jpg"
                 className="d-block w-100"
-                style={{ Filter: "brightness(30%)" , height:"700px",objectFit:"fill"}}
+                style={{
+                  Filter: "brightness(30%)",
+                  height: "700px",
+                  objectFit: "fill",
+                }}
                 alt="..."
               />
             </div>
@@ -101,7 +115,7 @@ function Home() {
         </div>
       </div>
       <div className="container">
-         {foodCat != [] ? (
+        {foodCat != [] ? (
           foodCat.map((data) => {
             return (
               <div className="row mb-3">
@@ -109,11 +123,16 @@ function Home() {
                   {data.CategoryName}
                 </div>
                 <hr></hr>
-                {
-                  foodItem != [] ? 
+                {foodItem != [] ? (
                   foodItem
-                    .filter((item) =>((item.CategoryName === data.CategoryName) && (item.name.toLowerCase().includes(Search.toLocaleLowerCase()))))
-                    .map(filterItems => {
+                    .filter(
+                      (item) =>
+                        item.CategoryName === data.CategoryName &&
+                        item.name
+                          .toLowerCase()
+                          .includes(Search.toLocaleLowerCase())
+                    )
+                    .map((filterItems) => {
                       return (
                         <div
                           key={filterItems._id}
@@ -126,17 +145,16 @@ function Home() {
                         </div>
                       );
                     })
-                 : 
-                  <div>No such data exist</div>}
-               
-                
+                ) : (
+                  <div>No such data exist</div>
+                )}
               </div>
-            )
-        })
-         ): (
+            );
+          })
+        ) : (
           <div>""""""""""</div>
-        )} 
-      </div> 
+        )}
+      </div>
       <div>
         <Footer />
       </div>
