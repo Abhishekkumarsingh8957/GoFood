@@ -1,8 +1,6 @@
-const env=require("dotenv");
-env.config();
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 const mongodb = require("./db");
 const CreateUser = require("./Routes/CreateUser");
 const DisplayData=require("./Routes/DisplayData")
