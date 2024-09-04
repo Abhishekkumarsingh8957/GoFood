@@ -1,5 +1,4 @@
 import React ,{useState}from "react";
-import Badge from "@material-ui/core/Badge";
 import { Link , useNavigate } from "react-router-dom";
 import Cart from "../screens/Cart";
 import Modal from "../Modal";
